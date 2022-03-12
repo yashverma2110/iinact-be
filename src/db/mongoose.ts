@@ -9,3 +9,7 @@ mongoose.connect(
     autoIndex: true,
   } as ConnectOptions
 );
+
+const db = mongoose.connection;
+
+db.on("error", () => console.log("Unable to connect to DB"));
