@@ -12,4 +12,4 @@ mongoose.connect(
 
 const db = mongoose.connection;
 
-db.on("error", () => console.log("Unable to connect to DB"));
+db.on("error", (error: any) => console.log("Unable to connect to DB", error));
