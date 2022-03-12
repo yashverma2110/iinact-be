@@ -9,6 +9,7 @@ import listRouter from "./routers/list.router";
 const app: Application = express();
 const port = 8080;
 
+// middlwares
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 
