@@ -3,7 +3,7 @@ import List from "../models/List";
 
 const createList: RequestHandler = async (req, res) => {
   try {
-    const list = new List(req.body);
+    const list = new List({ ...req.body, user: req.user._id });
 
     await list.save();
 
@@ -12,13 +12,33 @@ const createList: RequestHandler = async (req, res) => {
       list,
     });
   } catch (error: any) {
-    res.json({
+    res.status(500).json({
       success: false,
       error: {
         msg: error.code,
+        meta: error,
       },
     });
   }
 };
 
-export default { createList };
+const getListsByUser: RequestHandler = async (req, res) => {
+  try {
+    const lists = await List.find({ user: req.user._id });
+
+    res.status(200).json({
+      success: true,
+      lists,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      error: {
+        msg: error.message ?? error.code,
+        meta: error,
+      },
+    });
+  }
+};
+
+export default { createList, getListsByUser };

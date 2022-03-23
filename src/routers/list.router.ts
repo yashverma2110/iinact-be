@@ -12,5 +12,6 @@ router.post(
   validatePayload(listValidator.listCreate),
   listController.createList
 );
+router.get("/me", auth.checkAuth, listController.getListsByUser);
 
 export default router;
