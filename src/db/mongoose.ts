@@ -12,4 +12,8 @@ mongoose.connect(
 
 const db = mongoose.connection;
 
+db.on("connected", () =>
+  console.log("Mongoose default connection established")
+);
+
 db.on("error", (error: any) => console.log("Unable to connect to DB", error));
