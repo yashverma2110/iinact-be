@@ -65,9 +65,10 @@ const logIn: RequestHandler = async (req, res) => {
 
 const getUser: RequestHandler = async (req, res) => {
   try {
-    const { email, firstName, lastName } = req.user;
+    const { _id, email, firstName, lastName } = req.user;
 
     res.json({
+      _id,
       email,
       firstName,
       lastName,

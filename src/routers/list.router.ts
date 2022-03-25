@@ -12,6 +12,7 @@ router.post(
   validatePayload(listValidator.listCreate),
   listController.createList
 );
+router.patch("/edit/:listId", auth.checkAuth, listController.editList);
 router.get("/me", auth.checkAuth, listController.getListsByUser);
 
 export default router;
