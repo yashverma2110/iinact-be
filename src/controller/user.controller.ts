@@ -16,6 +16,7 @@ const signUp: RequestHandler = async (req, res) => {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
+      _id: user._id,
     });
   } catch (e: any) {
     console.log(e);
@@ -48,6 +49,7 @@ const logIn: RequestHandler = async (req, res) => {
     res.json({
       success: true,
       token,
+      _id: user._id,
       email: user.email,
       firstName: user.firstName,
       lastName: user.lastName,
