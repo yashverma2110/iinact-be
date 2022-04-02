@@ -6,6 +6,7 @@ const getSchedules: RequestHandler = async (req, res) => {
   try {
     const schedules = await Schedule.find({ user: req.user._id });
 
+    // populate list data and schedule url if not there
     for (const idx in schedules) {
       const list = await List.findById(schedules[idx].list, {
         name: 1,
