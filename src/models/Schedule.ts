@@ -11,6 +11,9 @@ const scheduleSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    current: {
+      type: String,
+    },
     days: {
       type: [String],
     },
