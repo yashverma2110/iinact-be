@@ -6,6 +6,7 @@ import cors from "cors";
 import userRouter from "./routers/user.router";
 import listRouter from "./routers/list.router";
 import scheduleRouter from "./routers/schedule.router";
+import submissionRouter from "./routers/submission.router";
 
 const app: Application = express();
 const port = 8080;
@@ -24,6 +25,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use("/user", userRouter);
 app.use("/list", listRouter);
 app.use("/schedule", scheduleRouter);
+app.use("/submission", submissionRouter);
 
 app.get("/", (req: Request, res: Response) => {
   return res.send("it's up and away");
