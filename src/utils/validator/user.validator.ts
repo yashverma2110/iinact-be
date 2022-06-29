@@ -7,6 +7,12 @@ const signup = yup.object().shape({
     password: yup.string().min(5).max(8).required(),
 })
 
+const tag = yup.object().shape({
+  name: yup.string().required().min(5).max(24),
+  color: yup.string().required(),
+});
+
 export default {
-    signup
-}
+  signup,
+  tag,
+};

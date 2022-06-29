@@ -6,12 +6,19 @@ import auth from "../middleware/auth";
 
 const router = express.Router();
 
+router.get("/details", auth.checkAuth, userControllers.getUser);
 router.post(
   "/signup",
   validatePayload(userPayloadValidator.signup),
   userControllers.signUp
 );
 router.post("/login", userControllers.logIn);
-router.get("/details", auth.checkAuth, userControllers.getUser);
+
+router.post(
+  "/tag",
+  auth.checkAuth,
+  validatePayload(userPayloadValidator.tag),
+  userControllers.addTagForUser
+);
 
 export default router;
