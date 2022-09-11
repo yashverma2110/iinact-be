@@ -6,7 +6,8 @@ import auth from "../middleware/auth";
 
 const router = express.Router();
 
-router.get("/user", auth.checkAuth, scheduleControllers.getSchedules);
+router.get('/all', auth.checkAuth, scheduleControllers.getSchedules);
+
 router.post(
   "/create",
   auth.checkAuth,

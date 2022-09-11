@@ -10,10 +10,6 @@ const listSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    type: {
-      type: String,
-      requried: true,
-    },
     public: {
       type: Boolean,
       default: false,
@@ -21,7 +17,7 @@ const listSchema = new mongoose.Schema(
     user: {
       type: mongoose.Types.ObjectId,
       required: true,
-      ref: "User",
+      ref: 'User',
     },
     likes: {
       type: Number,

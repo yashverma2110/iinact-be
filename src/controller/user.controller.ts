@@ -48,7 +48,6 @@ const logIn: RequestHandler = async (req, res) => {
 
     const token = await UTILS.generateAuthToken(user.email, user._id);
     res.json({
-      success: true,
       token,
       _id: user._id,
       email: user.email,

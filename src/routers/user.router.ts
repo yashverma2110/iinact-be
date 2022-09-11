@@ -7,6 +7,7 @@ import auth from "../middleware/auth";
 const router = express.Router();
 
 router.get("/details", auth.checkAuth, userControllers.getUser);
+
 router.post(
   "/signup",
   validatePayload(userPayloadValidator.signup),

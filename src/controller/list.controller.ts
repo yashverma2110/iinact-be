@@ -6,7 +6,6 @@ const getListsByUser: RequestHandler = async (req, res) => {
     const lists = await List.find({ user: req.user._id });
 
     res.status(200).json({
-      success: true,
       lists,
     });
   } catch (error: any) {
@@ -27,7 +26,6 @@ const createList: RequestHandler = async (req, res) => {
     await list.save();
 
     res.status(201).json({
-      success: true,
       list,
     });
   } catch (error: any) {
@@ -54,7 +52,6 @@ const editList: RequestHandler = async (req, res) => {
     );
 
     res.status(200).json({
-      success: true,
       list,
     });
   } catch (error: any) {

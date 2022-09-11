@@ -9,9 +9,9 @@ import scheduleRouter from "./routers/schedule.router";
 import submissionRouter from "./routers/submission.router";
 
 const app: Application = express();
-const port = 8080;
+const port = 8081;
 
-const allowedOrigins = ["http://localhost:3000", "https://iinact.vercel.app"];
+const allowedOrigins = ['http://localhost:8080', 'https://iinact.vercel.app'];
 
 // middlwares
 app.use(
